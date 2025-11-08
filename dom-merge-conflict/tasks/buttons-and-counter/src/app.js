@@ -7,8 +7,14 @@ function increment(node) {
   node.textContent = Number(current) + 1;
 }
 
+function decrement(node) {
+  let current = node.textContent;
+  node.textContent = Number(current) - 1;
+}
+
 export function App() {
   const body = document.createElement("body");
+
 
   const headerTag = header();
 
@@ -17,11 +23,17 @@ export function App() {
   const mainTag = main();
   body.appendChild(mainTag);
 
-  const button = body.querySelector("#increment");
+  const icncrementButton = body.querySelector("#increment");
   const counter = body.querySelector("#counter");
-  button.addEventListener("click", () => {
+  const decrementButton = body.querySelector("#decrement");
+
+  icncrementButton.addEventListener("click", () => {
     increment(counter);
   });
-
+  decrementButton.addEventListener("click", () => {
+    decrement(counter);  
+  });
+  
   return body;
 }
+
